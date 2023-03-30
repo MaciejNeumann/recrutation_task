@@ -1,0 +1,23 @@
+FOR theme-lib.message-list 
+
+1. Add additional sorting methods to the post list and add it to the dropdown menu
+-Post time, from the newest to oldest 
+-The lowest number of kudos 
+-Unanswered questions
+-Questions with no solution 
+
+2. Hard code page size to 30 posts per page 
+
+3. Change the name of class for solved threads (choose your own name)
+
+FOR theme-lib.profile-activity
+
+1. Add another tab with blog posts of the user (conversation.style = 'blog') 
+
+FOR theme-lib.community-header-user-navigation
+
+1. Hide FAQ panel from the unregistered users view
+
+FOR top labels css
+
+1. Make this element not clickable and (visually) not a dropdown - only through css rules 
