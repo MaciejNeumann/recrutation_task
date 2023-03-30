@@ -20,4 +20,4 @@ FOR theme-lib.community-header-user-navigation
 
 FOR top labels css
 
-1. Make this element not clickable and (visually) not a dropdown - only through css rules 
+1. Make this element not clickable and (visually) not a dropdown - only through css rules (see the picture)
