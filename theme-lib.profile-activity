@@ -141,39 +141,4 @@
        <#--/labels -->
    </section>
 </div>
- 
-<@liaAddScript>
-;(function($) {
-   $(document).ready(function(){
-       $(".load-more-button").click(function(event) {
-           event.stopPropagation();
-           event.preventDefault();
-           var type = $(this).attr("type");
-           var max = Number($(this).attr("max"));
-           var offset = Number($(this).attr("offset"));
-           $(this).attr("offset", offset+${messages_to_show});
-           var limit = $(this).attr("limit");  
-           var target = $(this).attr("target");
-           var button = $(this);
-           var url = '${commonUtils.getEndpointUrl("theme-lib.profile-activity")}&type='+type+'&offset='+offset+'&limit='+limit+'&currentUser=${currentUser}';
-           $.ajax({url: url, success: function(result) {
-               $(target).append(result);
-               if (offset+${messages_to_show} >= max) button.hide();
-           }});
-       });
- 
-       $(".custom-tabs li").click(function(event) {
-           event.stopPropagation();
-           event.preventDefault();
-           var id = $(".lia-link-navigation", this).attr("href");
-           $(".custom-tabs .lia-tabs-active").addClass("lia-tabs-inactive");
-           $(".custom-tabs li").removeClass("lia-tabs-active");
-           $(this).removeClass("lia-tabs-inactive");
-           $(this).addClass("lia-tabs-active");
-           $(".custom-tab-content").hide();
-           $(".custom-tab-content"+id).show();
-       });
-   });
-})(LITHIUM.jQuery);
-</@liaAddScript>
-<#--/custom profile activity -->
+
