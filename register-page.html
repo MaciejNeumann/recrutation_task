@@ -465,19 +465,6 @@
 /* Buttons */
 
 .lia-button {
-    border-radius: 8px;
-    border: 0;
-    display: inline-block;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: normal;
-    min-width: 0 !important;
-    padding: 10px 32px;
-    transition: background-color 180ms ease, color 180ms ease, border 180ms ease;   
-}
-
-.lia-button {
     display: inline-block;
     margin-bottom: 0;
     font-weight: normal;
@@ -497,6 +484,19 @@
     -ms-user-select: none;
     user-select: none;
     
+}
+
+.lia-button {
+    border-radius: 8px;
+    border: 0;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    min-width: 0 !important;
+    padding: 10px 32px;
+    transition: background-color 180ms ease, color 180ms ease, border 180ms ease;   
 }
 
 .lia-button:hover{
@@ -563,7 +563,121 @@
 }
 
 
-/*Fonts*/
+/*New link button*/
+
+.lia-button-link-new, .lia-button-link-new:focus {
+    border: none;
+    font-weight: 700;
+    border-radius: 0;
+    color: #fff;
+    position: relative;
+    font-size: 18px;
+    height: 52px;
+    line-height: 52px;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+    padding: 0 35px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    padding-left: 0;
+    text-decoration: none;
+}
+
+a.lia-button-link-new.lia-button-link-new-blue, a.lia-button-link-new.lia-button-link-new-blue:focus {
+    color: #1966FF;
+    margin: 0px;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    text-decoration: none;
+}
+
+a.lia-button-link-new.lia-button-link-new-black, a.lia-button-link-new.lia-button-link-new-black:focus {
+    color: #000000;
+    margin: 0px;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    text-decoration: none;
+}
+
+.lia-button-link-new:before {
+    content: "";
+    display: block;
+    background-color: currentColor;
+    height: 2px;
+    position: absolute;
+    bottom: 7px;
+    opacity: .25;
+    width: calc(100% - 35px);
+    box-sizing: inherit;
+    transition: opacity .2s;
+}
+
+.lia-button-link-new:after {
+    content: "";
+    display: block;
+    background-color: currentColor;
+    height: 2px;
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    transition: width .2s;
+    box-sizing: inherit;
+}
+
+.lia-button-link-new-blue:before, .lia-button-link-new-blue:after, .lia-button-link-new-black:before, .lia-button-link-new-black:after {
+    bottom: 4px;
+}
+
+.lia-button-link-new:hover {
+    background-color: unset;
+    color: white;
+    text-decoration: none;
+}
+
+.lia-button-link-arrow {
+    display: inline-block;
+    content:url("https://community.dynatrace.com/html/assets/arrow-right-white.svg");
+    position: absolute;
+    overflow: visible;
+    top: 20px;
+    right: 8px;
+    transition: right .2s;
+    fill: white;
+    color: white;
+}
+
+span.lia-button-link-arrow.lia-button-link-arrow-blue {
+    content:url("https://community.dynatrace.com/html/assets/arrow-right.svg");
+    top: 12px;
+    right: 12px;
+    height: 8px;
+}
+
+span.lia-button-link-arrow.lia-button-link-arrow-black {
+    content:url("https://community.dynatrace.com/html/assets/arrow-right-black.svg");
+    top: 12px;
+    right: 12px;
+    height: 8px;
+}
+
+.lia-button-link-new:hover .lia-button-link-arrow {
+    right: 4px;
+}
+
+.lia-button-link-new-blue:hover .lia-button-link-arrow, .lia-button-link-new-black:hover .lia-button-link-arrow {
+    right: 8px;
+}
+
+.lia-button-link-new:hover:before {
+    opacity: 1;
+}
+
 
 
 
@@ -923,4 +1037,3 @@
 
 </body>
 </html>
-
