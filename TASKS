@@ -1,14 +1,14 @@
-WARM-UP TASKS
+WARM-UP TASKS - 
 
-FOR theme-lib.community-header-user-navigation 
+FOR register.html
 
-1. Hide FAQ panel from the unregistered users view
+1. Add another element to the carousel - use random picture and text
+2. Change the scaling of the  benefits section below 900px screen size - divide elements into 2 rows with 3 elements each. Make icons hover on hover.
+3. Add a script adding a new div with a violet button inside (linking do Google maps) to the map element
 
-FOR top labels css
 
-1. Make the element not clickable (no mouse pointer change at the hover) and (visually) not a dropdown - only through css rules (see the picture - css task.png)
 
-MAIN TASKS
+MAIN TASKS - Work with pure code and show us what kind of changes you would make to fullfill the task. Remember to put comments of your every step, as in this case, we are more interested in seeing your train of thought, instead of 100% working component.
 
 FOR theme-lib.message-list 
 
@@ -21,8 +21,3 @@ FOR theme-lib.message-list
 -The lowest number of kudos 
 -Unanswered questions
 -Questions with no solution 
-
-FOR theme-lib.profile-activity
-
-1. Add another tab with blog posts of the user (conversation.style = 'blog')
-
