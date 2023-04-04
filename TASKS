@@ -4,7 +4,7 @@ FOR register.html
 
 1. Add another element to the carousel - use random picture and text
 2. Change the scaling of the benefits section below 900px screen size - divide elements into 2 rows with 3 elements each. Make icons a little bit bigger on hover.
-3. Add a script adding a new div with a violet button inside (linking do Google maps) to the map element
+3. Add a script adding a new div with a violet button inside in it (linking do Google maps) to the map element
 
 
 
