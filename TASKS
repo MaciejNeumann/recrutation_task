@@ -10,6 +10,13 @@ FOR register-page.html
 
 MAIN TASKS - Work with pure code and show us what kind of changes you would make to fullfill the task. Remember to put comments on your every step, as in this case, we are more interested in seeing your train of thought, instead of 100% working component.
 
+The code you'll work on is created in a template engine called Freemarker, that is used across the Dynatrace Community. Apache FreeMarker is a template engine: a Java library to generate text output (HTML web pages, e-mails, configuration files, source code, etc.) based on templates and changing data.
+Here is a documentation to it: https://freemarker.apache.org
+In the code there is also used Lithium Query Language (LiQL) - language used to retrieve Community data using a familiar, SQL-like syntax.
+
+The knowledge of those technologies is not necessary to solve the problems. as they are very similar to other widely uses languages.
+
+
 FOR theme-lib.message-list 
 
 1. Set up page size to exactly 30 posts per page (instead getting it from the other source, set the setting always to the specific number)
@@ -21,3 +28,6 @@ FOR theme-lib.message-list
 -The lowest number of kudos 
 -Unanswered questions
 -Questions with no solution 
+
+
+Create a fork out of this repositorium and send us a link to it.
