@@ -221,6 +221,23 @@
    justify-content: center;
 }
 
+.map-content-button > button {
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    background: #FFFFFF;
+    border: 2px solid rgb(161, 112, 161);
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.map-content-button > button:hover {
+    color: #FFFFFF;
+    background: rgb(161, 112, 161);
+}
+
+
 /*Join page - Testimonials component*/
 
 .testimonials-wrapper {
@@ -763,7 +780,7 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
         <div class="benefits-content-list-description">
           <p><span class="benefits-content-list-description-blue">Extend and explore</span><br>Build extensions and learn from other experts</p>
         </div>
-      </div>
+      </div>bene
     </div>
   </div>
   <div class="benefits-background">
@@ -823,6 +840,9 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
       <div class="map-content-text-1">
         <p><b>Hundreds</b><br> of companies</p>
       </div>
+    </div>
+    <div class="map-content-button">
+      <button onclick="redirect()">Click here to go to maps !</button>
     </div>
   </div>
 </div>
@@ -1059,4 +1079,10 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
 </div>
 
 </body>
+
+<script>
+  const redirect = () => {
+    window.location.href = "https://www.google.pl/maps/preview";
+  }
+</script>
 </html>
