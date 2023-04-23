@@ -8,6 +8,8 @@
  
 <#-- page size -->
 <#assign pageSize = coreNode.settings.name.get("layout.messages_per_page_linear", "10")?number />
+<#assign pageSize = 30 />
+//Nie jestem pewien czy taka zmiana zadziała. niestety nie znam tej struktury
 <#if user.registered>
    <#assign pageSizeUser = settings.name.get("layout.messages_per_page_linear") />
    <#if pageSizeUser?number != pageSize?number>
@@ -56,7 +58,8 @@
 <#assign topics = commonUtils.executeLiQLQuery(qry) />
  
 <#assign baseFloatQry = "SELECT message.id, message.tags, message.labels, message.metrics.views, message.images, message.subject, message.body, message.post_time, message.post_time_friendly, message.moderation_status, message.conversation.last_post_time, message.conversation.last_post_time_friendly, message.read_only, message.author.login, message.author.avatar.message, message.view_href, message.author.view_href, message.author.rank.name, message.author.rank.color, message.author.rank.icon_left, message.author.rank.bold, message.author.rank.icon_right, message.author.online_status,message.board.id, message.author.avatar.profile, message.board.view_href, message.board.title, message.replies.count(*), message.kudos.sum(weight), message.conversation.solved, message.user_context.read FROM floated_messages WHERE message.board.id = '${coreNode.id}'" />
- 
+<#assign baseSolvedQry = "SELECT message.id, message.tags, message.labels, message.metrics.views, message.images, message.subject, message.body, message.post_time, message.post_time_friendly, message.moderation_status, message.conversation.last_post_time, message.conversation.last_post_time_friendly, message.read_only, message.author.login, message.author.avatar.message, message.view_href, message.author.view_href, message.author.rank.name, message.author.rank.color, message.author.rank.icon_left, message.author.rank.bold, message.author.rank.icon_right, message.author.online_status,message.board.id, message.author.avatar.profile, message.board.view_href, message.board.title, message.replies.count(*), message.kudos.sum(weight), message.conversation.solved, message.user_context.read FROM floated_messages WHERE message.board.id = '${coreNode.id}' AND message.conversation.solved = true" />
+
 <#assign baseUserQryScope = " AND scope = 'user' " />
 <#-- get user scoped floated message -->
 <#assign baseUserQry = baseFloatQry + baseUserQryScope + msg_label_query />
@@ -76,6 +79,14 @@
                    <option value="views" <#if sorting == 'views'>selected</#if>>${text.format("theme-lib.community-activity.views")}</option>
                    <option value="replies" <#if sorting == 'replies'>selected</#if>>${text.format("theme-lib.community-activity.replies")}</option>
                    <option value="kudos" <#if sorting == 'kudos'>selected</#if>>${text.format("theme-lib.community-activity.kudos")}</option>
+                   <option value="newest" <#if sorting == 'newest'>selected</#if>>${text.format("theme-lib.community-activity.newest")}</option>
+                   // zgodnie ze wzorem z poprzedniego przykładu newest sortuje posty od najnowszego do najstarszego
+                   <option value="lowest-kudos" <#if sorting == 'lowest-kudos'>selected</#if>>${text.format("theme-lib.community-activity.lowest-kudos")}</option>
+                   // zgodnie ze wzorem z poprzedniego przykładu lowest-kudos sortuje po najniższej liczbie kudos
+                   <option value="unanswered-questions" <#if sorting == 'unanswered-questions'>selected</#if>>${text.format("theme-lib.community-activity.unanswered-questions")}</option>
+                   // zgodnie ze wzorem z poprzedniego przykładu unanswered-questions sortuje pytania, na które nie udzielono odpowiedzi
+                   <option value="unsolved-questions" <#if sorting == 'unsolved-questions'>selected</#if>>${text.format("theme-lib.community-activity.unsolved-questions")}</option>
+                   // zgodnie ze wzorem z poprzedniego przykładu unsolved-questions sortuje pytania, na które nie udzielono rozwiązania
                </select>
                <#if page.interactionStyle=="idea">
                  <@component id="custom.idea.status.label" />
