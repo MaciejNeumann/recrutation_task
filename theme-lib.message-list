@@ -7,7 +7,7 @@
 <#assign sorting = http.request.parameters.name.get("sort", "") />
  
 <#-- page size -->
-<#assign pageSize = coreNode.settings.name.get("layout.messages_per_page_linear", "10")?number />
+<#assign pageSize = coreNode.settings.name.get("layout.messages_per_page_linear", "30")?number /> //change of lines per page is here
 <#if user.registered>
    <#assign pageSizeUser = settings.name.get("layout.messages_per_page_linear") />
    <#if pageSizeUser?number != pageSize?number>
@@ -38,16 +38,29 @@
    <#case "kudos">
        <#assign orderClause = "ORDER BY kudos.sum(weight) DESC " />
    <#break>
+   <#case "lowestKudos">
+       <#assign orderClause = "ORDER BY kudos.min" />
+   <#break>
+   <#case "recent">
+       <#assign orderClause = "ORDER BY recent DESC " />
+   <#break>
    <#case "views">
        <#assign orderClause = "ORDER BY metrics.views DESC " />
    <#break>
+   <#case "withoutReplies">
+       <#assign orderClause = "ORDER BY replies.isNull" />
+   <#break>
    <#case "replies">
        <#assign orderClause = "ORDER BY replies.count(*) DESC " />
+   <#break>
+   <#case "noSolution">
+       <#assign orderClause = "ORDER BY noSolution.count(*) DESC " />
    <#break>
    <#default>
        <#assign orderClause = "ORDER BY conversation.last_post_time DESC " />
    <#break>
 </#switch>
+//adding method implementations
  
 <#assign limitClause = "LIMIT ${pageSize} OFFSET ${offset}" />
  
@@ -76,6 +89,10 @@
                    <option value="views" <#if sorting == 'views'>selected</#if>>${text.format("theme-lib.community-activity.views")}</option>
                    <option value="replies" <#if sorting == 'replies'>selected</#if>>${text.format("theme-lib.community-activity.replies")}</option>
                    <option value="kudos" <#if sorting == 'kudos'>selected</#if>>${text.format("theme-lib.community-activity.kudos")}</option>
+                   <option value="lowestKudos" <#if sorting == 'lowestKudos'>selected</#if>>${text.format("theme-lib.community-activity.lowestKudos")}</option>
+                   <option value="withoutReplies" <#if sorting == 'withoutReplies'>selected</#if>>${text.format("theme-lib.community-activity.withoutReplies")}</option>
+                   <option value="noSolution" <#if sorting == 'noSolution'>selected</#if>>${text.format("theme-lib.community-activity.noSolution")}</option>
+ //adding methods references
                </select>
                <#if page.interactionStyle=="idea">
                  <@component id="custom.idea.status.label" />
@@ -163,7 +180,7 @@
    <#assign labels = commonUtils.executeLiQLQuery(qry)![] />
 
    <#-- custom message tile -->
-   <article class="custom-message-tile ${escalated} ${locked} ${solved} ${floated} ${requires_moderation} ${unread}">
+   <article class="custom-message-tile ${escalated} ${locked} ${solved-threads-changed} ${floated} ${requires_moderation} ${unread}"> //changed name of class 
        <#-- batch processing -->
        <#local showBatchProcessingCheckBox = "false"/>
        <#if user.registered>

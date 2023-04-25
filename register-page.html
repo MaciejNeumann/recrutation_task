@@ -4,6 +4,19 @@
 <title>Register - Dynatrace Community</title>
 
 <style>
+/*
+2. Change the scaling of the benefits section below 900px screen size - divide elements into 2 rows with 3 elements each. Make icons a little bit bigger on hover.
+
+MAIN TASKS - Work with pure code and show us what kind of changes you would make to fullfill the task. Remember to put comments on your every step, as in this case, 
+we are more interested in seeing your train of thought, instead of 100% working component.
+
+The code you'll work on is created in a template engine called Freemarker, that is used across the Dynatrace Community. Apache FreeMarker is a template engine: 
+a Java library to generate text output (HTML web pages, e-mails, configuration files, source code, etc.) based on templates and changing data.
+Here is a documentation to it: https://freemarker.apache.org
+In the code there is also used Lithium Query Language (LiQL) - language used to retrieve Community data using a familiar, SQL-like syntax.
+
+The knowledge of those technologies is not necessary to solve the problems. as they are very similar to other widely uses languages.
+*/
 
 .register-wrapper {
     background: url(https://community.dynatrace.com/html/assets/wave-white.svg), url(https://community.dynatrace.com/html/assets/fullwave-purple-opt1@3x.jpg);
@@ -44,6 +57,7 @@
 }
 
 /* Join page - benefits component */
+/*Change the scaling of the benefits section below 900px screen size - divide elements into 2 rows with 3 elements each. Make icons a little bit bigger on hover*/
 
 .benefits-wrapper {
    display: flex;
@@ -107,13 +121,13 @@
 }
 
 .benefits-content-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   grid-gap: 20px;
 }
 
 .benefits-content-list-element {
-    width: calc(100% / 6);
+    width: calc(100%);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -121,12 +135,17 @@
     min-width: min-content;
 }
 
-.benefits-content-list-icon {
+.benefits-content-list-icon{
     padding-bottom: 10px;
 }
 
 .benefits-content-list-icon > img {
     height: 60px;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+.benefits-content-list-icon:hover img {
+  transform: scale(1.2);
 }
 
 .benefits-content-list-description, .benefits-content-list-description-blue {
@@ -338,6 +357,7 @@
 }
 
 #testimonials-carousel .carousel-indicators {
+  display: flex;
     width: 100%;
     bottom: -5rem;
     left: 0%;
@@ -678,6 +698,15 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
     opacity: 1;
 }
 
+.map {
+  text-align: center;
+  padding: 30px;
+}
+.map-button {
+  background-color: violet;
+  border: none;
+  border-radius: 3px;
+}
 
 
 
@@ -840,6 +869,7 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
     <li data-target="#testimonials-carousel" data-slide-to="1"></li>
     <li data-target="#testimonials-carousel" data-slide-to="2"></li>
     <li data-target="#testimonials-carousel" data-slide-to="3"></li>
+    <li data-target="#testimonials-carousel" data-slide-to="4"></li>
   </ol>
 
   <div class="carousel-inner">
@@ -926,6 +956,27 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
         </div>
      </div>
     </div>
+
+    <div class="item">
+      <div class="testimonials-quote-wrap">
+       <div class="testimonials-quote-element">
+         <div class="testimonials-quote">
+           <p>Dynatrace is a global company of thousands with a singular vision: make the world’s software work perfectly. </p>
+           <img class="testimonial-quote-mark-1" src="https://community.dynatrace.com/html/assets/quote_black.png">
+           <img class="testimonial-quote-mark-2" src="https://community.dynatrace.com/html/assets/quote_black.png">
+         </div>
+       </div>
+         <div class="testimonials-picture">
+           <div class="testimonials-picture-avatar">
+             <img src="https://marvel-b1-cdn.bc0a.com/f00000000236551/dt-cdn.net/wp-content/uploads/2023/02/shutterstock_482556811-2-scaled.jpg"></img>
+           </div>
+           <div class="testimonials-picture-name">
+             <h2>Man</h2>
+             <p>Client</p>
+           </div>
+         </div>
+      </div>
+     </div>
 
   <a class="left carousel-control" href="#testimonials-carousel" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -1033,6 +1084,9 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
       </div>
     </div>
   </div>
+</div>
+<div class="map">
+  <button class="map-button" onclick="window.open('https://maps.google.com/')">Click to see the map.</button>
 </div>
 
 </body>
